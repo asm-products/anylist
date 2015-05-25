@@ -1,0 +1,41 @@
+(function() {
+  'use strict';
+
+  angular
+    .module('anylistApp', ['ngRoute'])
+
+  angular
+    .module('anylistApp')
+    .config(config)
+
+  function config($routeProvider, $httpProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: "<%= asset_path('assets/templates/lists.html') %>",
+        controller: 'listsController'
+      });
+
+    $httpProvider.interceptors.push(function($q, $window) {
+      return {
+        'request': function(config) {
+          config.headers['Token'] = $window.sessionStorage.token;
+          return config;
+        }
+      };
+    });
+  };
+
+  angular
+    .module('anylistApp')
+    .run(authSecurity);
+
+  authSecurity.$inject = ['$rootScope', '$location', 'usersService']
+
+  function authSecurity($rootScope, $location, usersService) {
+    $rootScope.$on("$routeChangeStart", function (event, next) {
+      if(next.security && !usersService.isAuthenticated()) {
+        $location.path('/')
+      }
+    });
+  }
+})()

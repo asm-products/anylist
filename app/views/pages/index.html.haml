@@ -1,0 +1,13 @@
+!!!
+%html{ 'ng-app' => 'anylistApp' }
+  %head
+    %title
+      Anylist
+    %script{ :src => '//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js' }
+    %script{ :src => '//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js' }
+    = javascript_include_tag 'application'
+    = stylesheet_link_tag 'application', media: 'all'
+  %body{ 'ng-controller' => 'applicationController' }
+    %header{ 'ng-include' => "'#{ asset_path('templates/partials/header.html') }'", 'ng-controller' => 'headerController' }
+    %div{ 'ng-view' => '' }
+    %footer{ 'ng-include' => "'#{ asset_path('templates/partials/footer.html') }'" }
