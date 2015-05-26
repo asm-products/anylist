@@ -1,2 +1,7 @@
-.list{ 'ng-repeat' => 'list in lists' }
-  {{ list }}
+.row{ 'ng-repeat' => 'group in lists track by $index', 'ng-if' => '$index % 3 == 0' }
+  .col-4{ 'ng-repeat' => '$i in [$index, $index+1, $index+2]' }
+    .list
+      .title
+        {{ lists[$i].title }}
+      .item{ 'ng-repeat' => 'item in lists[$i].items' }
+        {{ item.title }}

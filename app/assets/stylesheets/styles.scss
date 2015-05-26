@@ -99,3 +99,16 @@ h1, h2 {
   vertical-align: top;
   width: 100%;
 }
+
+.list {
+  margin-bottom: 40px;
+  .title {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .item {
+    background: $lighter_color;
+    padding: 7px 12px;
+    margin-bottom: 2px;
+  }
+}
