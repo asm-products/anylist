@@ -27,4 +27,19 @@
       return $http.post('/api/v1/users/update', { email: user.email, password: user.password });
     };
   }
+
+  angular
+    .module('anylistApp')
+    .service('listsService', listsService)
+
+  listsService.$inject = ['$http', '$window']
+
+  function listsService($http, $window) {
+    this.getLists = function() {
+      return $http.get('/api/v1/lists')
+    }
+    this.createList = function(newList) {
+      return $http.post('/api/v1/lists', { list: newList });
+    };
+  }
 })()

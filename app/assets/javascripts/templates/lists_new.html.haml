@@ -1,0 +1,11 @@
+.row
+  .col-4.col-offset-4
+    %h1.page-header
+      Добавить лист
+    .form-group
+      %input.form-control{ :type => :text, 'ng-model' => 'newList.title', :placeholder => 'Название' }
+    .form-group
+      %input.form-control{ :type => :text, 'ng-model' => 'newList.items_attributes[0].title' }
+    .form-group
+      %button.btn{ :type => :submit, 'ng-click' => 'createList(newList)' }
+        Сохранить

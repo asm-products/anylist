@@ -2,8 +2,11 @@
   .container
     %a{ 'ng-href' => '#/' }
       Листы
-    %span.pull-right
-      %a{ 'ng-href' => '#/users/auth', 'ng-show' => '!current_user' }
-        Войти
-      %a{ 'ng-href' => '#/users/auth', 'ng-click' => 'signOutUser()', 'ng-show' => 'current_user' }
+    %span.pull-right{ 'ng-show' => 'current_user' }
+      %a{ 'ng-href' => '#/lists/new' }
+        Добавить лист
+      %a{ 'ng-href' => '#/users/auth' }
         Выйти
+    %span.pull-right{ 'ng-show' => '!current_user' }
+      %a{ 'ng-href' => '#/users/auth', 'ng-click' => 'signOutUser()' }
+        Войти

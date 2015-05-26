@@ -19,6 +19,7 @@ class Api::V1::ListsController < Api::V1::ApplicationController
     if @list.save
       render json: @list
     else
+      Rails.logger.debug @list.errors.inspect
       head :unprocessable_entity
     end
   end

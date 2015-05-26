@@ -36,9 +36,20 @@
     .module('anylistApp')
     .controller('listsController', listsController)
     
-  listsController.$inject = ['$scope', '$http']
+  listsController.$inject = ['$scope', '$http', 'listsService', '$location']
 
-  function listsController($scope, $http) {
+  function listsController($scope, $http, listsService, $location) {
+    listsService.getLists().then(function(data){
+      $scope.lists = data.data
+    })
+
+    $scope.createList = function(newList) {
+      listsService.createList(newList).then(function(data){
+        if(data) {
+          $location.path('/')
+        }
+      });
+    };
   }
 
   angular
@@ -60,7 +71,6 @@
     $scope.signInUser = function(user) {
       usersService.signInUser(user.email, user.password).then(function(data){
         if(data) {
-          console.log(data)
           $window.sessionStorage.token = data.data.token;
           $location.path('/')
         }

@@ -16,6 +16,10 @@
       }).when('/users/auth', {
         templateUrl: "<%= asset_path('assets/templates/auth.html') %>",
         controller: 'usersController'
+      }).when('/lists/new', {
+        templateUrl: "<%= asset_path('assets/templates/lists_new.html') %>",
+        controller: 'listsController',
+        security: true
       });
 
     $httpProvider.interceptors.push(function($q, $window) {
@@ -36,7 +40,7 @@
 
   function authSecurity($rootScope, $location, usersService) {
     $rootScope.$on("$routeChangeStart", function (event, next) {
-      if(next.security && !usersService.isAuthenticated()) {
+      if(next.security && !usersService.isUserAuthenticated()) {
         $location.path('/')
       }
     });
