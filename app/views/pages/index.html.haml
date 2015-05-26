@@ -9,5 +9,6 @@
     = stylesheet_link_tag 'application', media: 'all'
   %body{ 'ng-controller' => 'applicationController' }
     %header{ 'ng-include' => "'#{ asset_path('templates/partials/header.html') }'", 'ng-controller' => 'headerController' }
-    %div{ 'ng-view' => '' }
-    %footer{ 'ng-include' => "'#{ asset_path('templates/partials/footer.html') }'" }
+    .container
+      %div{ 'ng-view' => '' }
+      %footer{ 'ng-include' => "'#{ asset_path('templates/partials/footer.html') }'" }

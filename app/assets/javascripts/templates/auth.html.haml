@@ -1,0 +1,21 @@
+.row
+  .col-4.col-offset-1
+    %h1.page-header
+      Регистрация
+    .form-group
+      %input.form-control{ :type => :email, 'ng-model' => 'sign_up_user.email', :placeholder => 'Email' }
+    .form-group
+      %input.form-control{ :type => :password, 'ng-model' => 'sign_up_user.password', :placeholder => 'Пароль' }
+    .form-group
+      %button.btn{ :type => :submit, 'ng-click' => 'signUpUser(sign_up_user)' }
+        Сохранить
+  .col-4.col-offset-2
+    %h1.page-header
+      Авторизация
+    .form-group
+      %input.form-control{ :type => :email, 'ng-model' => 'sign_in_user.email', :placeholder => 'Email' }
+    .form-group
+      %input.form-control{ :type => :password, 'ng-model' => 'sign_in_user.password', :placeholder => 'Пароль' }
+    .form-group
+      %button.btn{ :type => :submit, 'ng-click' => 'signInUser(sign_in_user)' }
+        Войти

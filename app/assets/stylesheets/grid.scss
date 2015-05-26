@@ -1,0 +1,49 @@
+.container {
+  margin: 0 auto;
+  @media screen and (max-width: 960px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 960px) {
+    width: 940px;
+  }
+}
+
+.row {
+  overflow: hidden;
+  margin: 0 -10px;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    @media screen and (max-width: 480px) {
+      box-sizing: border-box;
+      width: 100%;
+      float: none;
+      padding: 0 10px;
+    }
+    @media screen and (min-width: 480px) and (max-width: 960px) {
+      box-sizing: border-box;
+      padding: 0 10px;
+      width: 100% / 12 * $i;
+      float: left;
+      
+    }
+    @media screen and (min-width: 960px) {
+      box-sizing: content-box;
+      padding: 0 10px;
+      width: 60px * $i + 20px * ($i - 1);
+      float: left;
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .col-offset-#{$i} {
+    @media screen and (min-width: 960px) {
+      margin-left: 60px * $i + 20px * ($i - 1) + 20px;
+    }
+    @media screen and (min-width: 480px) and (max-width: 960px) {
+      margin-left: 100% / 12 * $i;
+    }
+  }
+}

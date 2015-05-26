@@ -13,6 +13,9 @@
       .when('/', {
         templateUrl: "<%= asset_path('assets/templates/lists.html') %>",
         controller: 'listsController'
+      }).when('/users/auth', {
+        templateUrl: "<%= asset_path('assets/templates/auth.html') %>",
+        controller: 'usersController'
       });
 
     $httpProvider.interceptors.push(function($q, $window) {

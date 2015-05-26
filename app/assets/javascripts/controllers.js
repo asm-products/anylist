@@ -23,9 +23,13 @@
     .module('anylistApp')
     .controller('headerController', headerController)
     
-  headerController.$inject = ['$scope', '$http']
+  headerController.$inject = ['$scope', '$http', '$window', '$location']
 
-  function headerController($scope, $http) {
+  function headerController($scope, $http, $window, $location) {
+    $scope.signOutUser = function() {
+      $window.sessionStorage.removeItem('token')
+      $location.path('/')
+    }
   }
 
   angular
@@ -35,5 +39,38 @@
   listsController.$inject = ['$scope', '$http']
 
   function listsController($scope, $http) {
+  }
+
+  angular
+    .module('anylistApp')
+    .controller('usersController', usersController)
+    
+  usersController.$inject = ['$scope', '$http', 'usersService', '$window', '$location']
+
+  function usersController($scope, $http, usersService, $window, $location) {
+    $scope.signUpUser = function(user) {
+      usersService.signUpUser(user.email, user.password).then(function(data){
+        if(data) {
+          $window.sessionStorage.token = data.data.token;
+          $location.path('/')
+        }
+      });
+    };
+
+    $scope.signInUser = function(user) {
+      usersService.signInUser(user.email, user.password).then(function(data){
+        if(data) {
+          console.log(data)
+          $window.sessionStorage.token = data.data.token;
+          $location.path('/')
+        }
+      });
+    };
+
+    $scope.updateUser = function(user) {
+      usersService.updateUser(user).then(function(data){
+        $location.path('/')
+      });
+    };
   }
 })();

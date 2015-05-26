@@ -13,7 +13,6 @@ gem 'paperclip'
 gem 'acts-as-taggable-on'
 gem 'searchkick'
 gem 'russian'
-gem 'devise'
 gem 'bcrypt'
 
 group :development, :test do
