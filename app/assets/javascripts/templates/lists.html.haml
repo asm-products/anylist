@@ -3,5 +3,12 @@
     .list
       .title
         {{ lists[$i].title }}
+      .info
+        %a{ 'ng-href' => '#/lists/{{ lists[$i].id }}/edit' }
+          %i.fa.fa-cog
+          Изменить
+        %span
+          %i.fa.fa-user
+          {{ lists[$i].user.email }}
       .item{ 'ng-repeat' => 'item in lists[$i].items_attributes' }
         {{ item.title }}
