@@ -56,7 +56,7 @@
     }
 
     $scope.increaseListItemsCount = function(list) {
-      $scope.list.items_attributes.push({ title: '' })
+      $scope.list.items_attributes.push({ id: Math.random().toString(36).substr(2), title: '' })
     };
 
     $scope.processList = function(list) {
@@ -79,13 +79,8 @@
       });
     };
 
-    $scope.deleteItem = function() {
-      var item_id = this.item.id
-      angular.forEach($scope.list.items_attributes, function(item, key) {
-        if(item.id == item_id) {
-          $scope.list.items_attributes[key]._destroy = true
-        }
-      })
+    $scope.deleteItem = function(index) {
+      $scope.list.items_attributes[index]._destroy = true
     }
 
     $scope.increaseListItemsCount()

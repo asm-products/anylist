@@ -8,7 +8,7 @@
       .list
         .item-wrapper{ 'ng-repeat' => 'item in list.items_attributes track by $index', 'ng-hide' => 'item._destroy' }
           %input.item{ :type => :text, 'ng-model' => 'list.items_attributes[$index].title' }
-          %a{ 'ng-click' => 'deleteItem()' }
+          %a{ 'ng-click' => 'deleteItem($index)' }
             %i.btn.btn-clear.fa.fa-remove.destroy
         %a.btn.btn-clear.btn-block{ 'ng-click' => 'increaseListItemsCount()' }
           %i.fa.fa-plus
