@@ -36,21 +36,43 @@
     .module('anylistApp')
     .controller('listsController', listsController)
     
-  listsController.$inject = ['$scope', '$http', 'listsService', '$location']
+  listsController.$inject = ['$scope', '$http', 'listsService', '$location', '$routeParams']
 
-  function listsController($scope, $http, listsService, $location) {
+  function listsController($scope, $http, listsService, $location, $routeParams) {
     listsService.getLists().then(function(data){
       $scope.lists = data.data
     })
 
-    $scope.newListItemsCount = 3
+    $scope.list = {
+      items_attributes: []
+    }
 
-    $scope.increaseNewListItemsCount = function(newList) {
-      $scope.newListItemsCount += 1
+    if($routeParams.id) {
+      listsService.getList($routeParams.id).then(function(data){
+        if(data) {
+          $scope.list = data.data
+        }
+      });
+    }
+
+    $scope.increaseListItemsCount = function(list) {
+      $scope.list.items_attributes.push({ title: '' })
     };
 
-    $scope.createList = function(newList) {
-      listsService.createList(newList).then(function(data){
+    $scope.processList = function(list) {
+      $routeParams.id ? $scope.updateList(list) : $scope.createList(list)
+    }
+
+    $scope.updateList = function(list) {
+      listsService.updateList($scope.list.id, list).then(function(data){
+        if(data) {
+          $location.path('/')
+        }
+      });
+    };
+
+    $scope.createList = function(list) {
+      listsService.createList(list).then(function(data){
         if(data) {
           $location.path('/')
         }

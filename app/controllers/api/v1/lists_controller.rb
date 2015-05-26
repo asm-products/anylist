@@ -44,6 +44,6 @@ class Api::V1::ListsController < Api::V1::ApplicationController
     end
 
     def list_params
-      params.require(:list).permit(:title, :items_attributes => [:title])
+      params.require(:list).permit(:title, :items_attributes => [:id, :title, :_destroy])
     end
 end

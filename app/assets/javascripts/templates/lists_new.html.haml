@@ -3,12 +3,12 @@
     %h1.page-header
       Добавить лист
     .form-group
-      %input.form-control{ :type => :text, 'ng-model' => 'newList.title', :placeholder => 'Название' }
+      %input.form-control{ :type => :text, 'ng-model' => 'list.title', :placeholder => 'Название' }
     .form-group
       .list
-        %input.item{ :type => :text, 'ng-repeat' => 'i in [] | range:newListItemsCount', 'ng-model' => 'newList.items_attributes[i].title', :placeholder => '{{ i + 1 }}.' }
-        %a.btn.btn-clear.btn-block{ 'ng-click' => 'increaseNewListItemsCount()' }
+        %input.item{ :type => :text, 'ng-repeat' => 'item in list.items_attributes track by $index', 'ng-model' => 'list.items_attributes[$index].title' }
+        %a.btn.btn-clear.btn-block{ 'ng-click' => 'increaseListItemsCount()' }
           %i.fa.fa-plus
     .form-group
-      %button.btn{ :type => :submit, 'ng-click' => 'createList(newList)' }
+      %button.btn{ :type => :submit, 'ng-click' => 'processList(list)' }
         Сохранить

@@ -20,6 +20,10 @@
         templateUrl: "<%= asset_path('assets/templates/lists_new.html') %>",
         controller: 'listsController',
         security: true
+      }).when('/lists/:id/edit', {
+        templateUrl: "<%= asset_path('assets/templates/lists_new.html') %>",
+        controller: 'listsController',
+        security: true
       });
 
     $httpProvider.interceptors.push(function($q, $window) {

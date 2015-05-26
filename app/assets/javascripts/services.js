@@ -38,8 +38,14 @@
     this.getLists = function() {
       return $http.get('/api/v1/lists')
     }
-    this.createList = function(newList) {
-      return $http.post('/api/v1/lists', { list: newList });
-    };
+    this.getList = function(id) {
+      return $http.get('/api/v1/lists/' + id)
+    }
+    this.createList = function(list) {
+      return $http.post('/api/v1/lists', { list: list });
+    }
+    this.updateList = function(id, list) {
+      return $http.put('/api/v1/lists/' + id, { list: list });
+    }
   }
 })()
