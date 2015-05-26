@@ -78,6 +78,8 @@
         }
       });
     };
+
+    $scope.increaseListItemsCount()
   }
 
   angular
