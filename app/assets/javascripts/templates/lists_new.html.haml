@@ -1,14 +1,14 @@
 .row
-  .col-4.col-offset-4
+  .col-6.col-offset-3
     %h1.page-header
       Добавить лист
     .form-group
       %input.form-control{ :type => :text, 'ng-model' => 'newList.title', :placeholder => 'Название' }
-    .form-group{ 'ng-repeat' => '$i in [] | range:newListItemsCount' }
-      %input.form-control{ :type => :text, 'ng-model' => 'newList.items_attributes[$i].title', :placeholder => '{{ $i+1 }}.' }
     .form-group
-      %a.btn.btn-clear.btn-block{ 'ng-click' => 'increaseNewListItemsCount()' }
-        Еще
+      .list
+        %input.item{ :type => :text, 'ng-repeat' => 'i in [] | range:newListItemsCount', 'ng-model' => 'newList.items_attributes[i].title', :placeholder => '{{ i + 1 }}.' }
+        %a.btn.btn-clear.btn-block{ 'ng-click' => 'increaseNewListItemsCount()' }
+          %i.fa.fa-plus
     .form-group
       %button.btn{ :type => :submit, 'ng-click' => 'createList(newList)' }
         Сохранить
