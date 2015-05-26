@@ -43,6 +43,12 @@
       $scope.lists = data.data
     })
 
+    $scope.newListItemsCount = 3
+
+    $scope.increaseNewListItemsCount = function(newList) {
+      $scope.newListItemsCount += 1
+    };
+
     $scope.createList = function(newList) {
       listsService.createList(newList).then(function(data){
         if(data) {

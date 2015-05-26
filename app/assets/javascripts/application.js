@@ -13,5 +13,6 @@
 //= require anylist
 //= require controllers
 //= require services
+//= require filters
 //= require angular-rails-templates
 //= require_tree ./templates
