@@ -70,7 +70,9 @@ h1, h2 {
 
 .btn {
   display: inline-block;
-  padding: 10px 13px;
+  padding: 0 15px;
+  height: 40px;
+  line-height: 40px;
   background: $brand_color;
   color: #fff;
   border-radius: 3px;
@@ -125,9 +127,19 @@ h1, h2 {
     width: 100%;
     border-radius: 3px;
     background: $lighter_color;
-    padding: 10px 13px;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
     margin-bottom: 2px;
     border: none;
     font-size: 14px;
+  }
+  .item-wrapper {
+    position: relative;
+    .destroy {
+      position: absolute;
+      top: 0;
+      right: -43px;
+    }
   }
 }

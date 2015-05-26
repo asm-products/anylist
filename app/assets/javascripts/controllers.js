@@ -36,9 +36,9 @@
     .module('anylistApp')
     .controller('listsController', listsController)
     
-  listsController.$inject = ['$scope', '$http', 'listsService', '$location', '$routeParams']
+  listsController.$inject = ['$scope', '$http', 'listsService', '$location', '$routeParams', '$filter']
 
-  function listsController($scope, $http, listsService, $location, $routeParams) {
+  function listsController($scope, $http, listsService, $location, $routeParams, $filter) {
     listsService.getLists().then(function(data){
       $scope.lists = data.data
     })
@@ -78,6 +78,15 @@
         }
       });
     };
+
+    $scope.deleteItem = function() {
+      var item_id = this.item.id
+      angular.forEach($scope.list.items_attributes, function(item, key) {
+        if(item.id == item_id) {
+          $scope.list.items_attributes[key]._destroy = true
+        }
+      })
+    }
 
     $scope.increaseListItemsCount()
   }
