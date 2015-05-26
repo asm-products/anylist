@@ -4,8 +4,6 @@ class Api::V1::ApplicationController < ActionController::Base
 
   serialization_scope :current_user
 
-  respond_to :json
-
   before_filter do
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
