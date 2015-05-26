@@ -56,7 +56,7 @@
     }
 
     $scope.increaseListItemsCount = function(list) {
-      $scope.list.items_attributes.push({ id: Math.random().toString(36).substr(2), title: '' })
+      $scope.list.items_attributes.push({ title: '' })
     };
 
     $scope.processList = function(list) {

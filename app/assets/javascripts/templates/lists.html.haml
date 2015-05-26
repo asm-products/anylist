@@ -4,7 +4,7 @@
       .title
         {{ lists[$i].title }}
       .info
-        %a{ 'ng-href' => '#/lists/{{ lists[$i].id }}/edit' }
+        %a{ 'ng-href' => '#/lists/{{ lists[$i].id }}/edit', 'ng-if' => 'current_user' }
           %i.fa.fa-cog
           Изменить
         %span
