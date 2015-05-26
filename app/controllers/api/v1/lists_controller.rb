@@ -3,7 +3,7 @@ class Api::V1::ListsController < Api::V1::ApplicationController
   before_action :authenticate!, except: [:index, :show]
 
   def index
-    @lists = List.all
+    @lists = List.order('id DESC')
 
     render json: @lists
   end
