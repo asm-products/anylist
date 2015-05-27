@@ -1,6 +1,7 @@
 class Api::V1::ListsController < Api::V1::ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
   before_action :authenticate!, except: [:index, :show]
+  before_filter -> { check_access(@list) }, only: [:update, :destroy]
 
   def index
     @lists = List.order('id DESC').includes(:items, :user)

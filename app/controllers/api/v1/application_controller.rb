@@ -24,6 +24,10 @@ class Api::V1::ApplicationController < ActionController::Base
     head :unauthorized unless current_user
   end
 
+  def check_access(object)
+    head :unauthorized unless current_user && object.has_access?(current_user)
+  end
+
   def cors_preflight
     head :ok if request.request_method == 'OPTIONS'
   end

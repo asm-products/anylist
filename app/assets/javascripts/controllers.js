@@ -49,8 +49,10 @@
 
     if($routeParams.id) {
       listsService.getList($routeParams.id).then(function(data){
-        if(data) {
+        if(data && data.data.is_owner) {
           $scope.list = data.data
+        } else {
+          $location.path('/')
         }
       });
     }
