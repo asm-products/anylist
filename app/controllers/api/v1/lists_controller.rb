@@ -4,7 +4,7 @@ class Api::V1::ListsController < Api::V1::ApplicationController
   before_filter -> { check_access(@list) }, only: [:update, :destroy]
 
   def index
-    @lists = List.order('id DESC').includes(:items, :user)
+    @lists = List.order('id DESC').includes(:items, :user).page(params[:page]).per(12)
 
     render json: @lists
   end

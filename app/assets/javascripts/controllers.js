@@ -39,13 +39,7 @@
   listsController.$inject = ['$scope', '$http', 'listsService', '$location', '$routeParams', '$filter']
 
   function listsController($scope, $http, listsService, $location, $routeParams, $filter) {
-    listsService.getLists().then(function(data){
-      $scope.lists = data.data
-    })
-
-    $scope.list = {
-      items_attributes: []
-    }
+    $scope.current_page = 0;
 
     if($routeParams.id) {
       listsService.getList($routeParams.id).then(function(data){
@@ -55,6 +49,25 @@
           $location.path('/')
         }
       });
+    } else {
+      listsService.getLists().then(function(data){
+        $scope.lists = data.data
+      })
+    }
+
+    $scope.addLists = function() {
+      $scope.current_page += 1;
+      if(this.lists) {
+        listsService.getLists($scope.current_page).then(function(data){
+          if(data.data) {
+            $scope.lists = $scope.lists.concat(data.data)
+          }
+        })
+      }
+    }
+
+    $scope.list = {
+      items_attributes: []
     }
 
     $scope.increaseListItemsCount = function(list) {

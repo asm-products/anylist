@@ -35,8 +35,9 @@
   listsService.$inject = ['$http', '$window']
 
   function listsService($http, $window) {
-    this.getLists = function() {
-      return $http.get('/api/v1/lists')
+    this.getLists = function(page) {
+      page = page || 1;
+      return $http.get('/api/v1/lists', { params: { page: page }})
     }
     this.getList = function(id) {
       return $http.get('/api/v1/lists/' + id)

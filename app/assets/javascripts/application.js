@@ -14,5 +14,6 @@
 //= require controllers
 //= require services
 //= require filters
+//= require lib/infinite-scroll
 //= require angular-rails-templates
 //= require_tree ./templates

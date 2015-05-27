@@ -14,6 +14,7 @@ gem 'acts-as-taggable-on'
 gem 'searchkick'
 gem 'russian'
 gem 'bcrypt'
+gem 'kaminari'
 
 group :development, :test do
   gem 'rspec-rails'
