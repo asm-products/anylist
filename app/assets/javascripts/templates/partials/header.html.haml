@@ -6,6 +6,8 @@
       %span.pull-right{ 'ng-show' => 'current_user' }
         %a{ 'ng-href' => '#/lists/new' }
           Добавить лист
+        %a{ 'ng-href' => '#/user/{{ current_user.name }}' }
+          {{ current_user.name }}
         %a{ 'ng-href' => '#', 'ng-click' => 'signOutUser()' }
           Выйти
       %span.pull-right{ 'ng-show' => '!current_user' }
