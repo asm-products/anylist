@@ -13,5 +13,5 @@
     .form-group
       %button.btn{ :type => :submit, 'ng-click' => 'processList(list)' }
         Сохранить
-      %a.btn.btn-clear{ 'ng-href' => '#/list/{{ list.id }}' }
+      %a.btn.btn-clear{ 'ng-href' => '#/list/{{ list.id }}', 'ng-if' => 'list.id' }
         Отменить
