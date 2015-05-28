@@ -1,7 +1,5 @@
 .row
   .col-6.col-offset-3
-    %h1.page-header
-      Лист
     .form-group
       %input.form-control{ :type => :text, 'ng-model' => 'list.title', :placeholder => 'Название' }
     .form-group
@@ -15,3 +13,5 @@
     .form-group
       %button.btn{ :type => :submit, 'ng-click' => 'processList(list)' }
         Сохранить
+      %a.btn.btn-clear{ 'ng-href' => '#/list/{{ list.id }}' }
+        Отменить

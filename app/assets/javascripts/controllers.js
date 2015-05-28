@@ -34,20 +34,11 @@
 
   angular
     .module('anylistApp')
-    .controller('listsController', listsController)
+    .controller('createUpdateListController', createUpdateListController)
     
-  listsController.$inject = ['$scope']
+  createUpdateListController.$inject = ['$scope', '$http', 'listsService', '$location', '$routeParams']
 
-  function listsController($scope) {
-  }
-
-  angular
-    .module('anylistApp')
-    .controller('listController', listController)
-    
-  listController.$inject = ['$scope', '$http', 'listsService', '$location', '$routeParams']
-
-  function listController($scope, $http, listsService, $location, $routeParams) {
+  function createUpdateListController($scope, $http, listsService, $location, $routeParams) {
     if($routeParams.id) {
       listsService.getList($routeParams.id).then(function(data){
         if(data && data.data.is_owner) {
@@ -91,6 +82,33 @@
     }
 
     $scope.increaseListItemsCount()
+  }
+
+  angular
+    .module('anylistApp')
+    .controller('listsController', listsController)
+    
+  listsController.$inject = ['$scope']
+
+  function listsController($scope) {
+  }
+
+  angular
+    .module('anylistApp')
+    .controller('listController', listController)
+    
+  listController.$inject = ['$scope', '$http', 'listsService', '$location', '$routeParams']
+
+  function listController($scope, $http, listsService, $location, $routeParams) {
+    if($routeParams.id) {
+      listsService.getList($routeParams.id).then(function(data){
+        if(data) {
+          $scope.list = data.data
+        } else {
+          $location.path('/')
+        }
+      })
+    }
   }
 
   angular

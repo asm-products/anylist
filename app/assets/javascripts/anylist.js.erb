@@ -11,18 +11,21 @@
   function config($routeProvider, $httpProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: "<%= asset_path('assets/templates/lists.html') %>",
+        templateUrl: "<%= asset_path('assets/templates/lists/index.html') %>",
         controller: 'listsController'
       }).when('/users/auth', {
         templateUrl: "<%= asset_path('assets/templates/auth.html') %>",
         controller: 'usersController'
+      }).when('/list/:id', {
+        templateUrl: "<%= asset_path('assets/templates/lists/show.html') %>",
+        controller: 'listController',
       }).when('/lists/new', {
-        templateUrl: "<%= asset_path('assets/templates/list.html') %>",
-        controller: 'listController',
+        templateUrl: "<%= asset_path('assets/templates/lists/form.html') %>",
+        controller: 'createUpdateListController',
         security: true
-      }).when('/lists/:id/edit', {
-        templateUrl: "<%= asset_path('assets/templates/list.html') %>",
-        controller: 'listController',
+      }).when('/list/:id/edit', {
+        templateUrl: "<%= asset_path('assets/templates/lists/form.html') %>",
+        controller: 'createUpdateListController',
         security: true
       }).when('/user/:name', {
         templateUrl: "<%= asset_path('assets/templates/user.html') %>",

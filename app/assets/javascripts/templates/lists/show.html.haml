@@ -1,0 +1,15 @@
+.row
+  .col-6.col-offset-3
+    %h1.page-header
+      {{ list.title }}
+    .list
+      .info
+        %a{ 'ng-href' => '#/user/{{ list.user.name }}' }
+          %i.fa.fa-user
+          {{ list.user.name }}
+        %a{ 'ng-href' => '#/list/{{ list.id }}/edit', 'ng-if' => 'list.is_owner' }
+          %i.fa.fa-cog
+          Изменить
+      .item{ 'ng-repeat' => 'item in list.items_attributes | limitTo:5' }
+        {{ item.title }}
+        

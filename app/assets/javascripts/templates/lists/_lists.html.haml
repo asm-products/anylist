@@ -3,12 +3,13 @@
     .col-4{ 'ng-repeat' => '$i in [$index, $index+1, $index+2]', 'ng-if' => 'lists[$i]' }
       .list
         .title
-          {{ lists[$i].title }}
+          %a{ 'ng-href' => '#/list/{{ lists[$i].id }}' }
+            {{ lists[$i].title }}
         .info
           %a{ 'ng-href' => '#/user/{{ lists[$i].user.name }}' }
             %i.fa.fa-user
             {{ lists[$i].user.name }}
-          %a{ 'ng-href' => '#/lists/{{ lists[$i].id }}/edit', 'ng-if' => 'lists[$i].is_owner' }
+          %a{ 'ng-href' => '#/list/{{ lists[$i].id }}/edit', 'ng-if' => 'lists[$i].is_owner' }
             %i.fa.fa-cog
             Изменить
         .item{ 'ng-repeat' => 'item in lists[$i].items_attributes | limitTo:5' }
