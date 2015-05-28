@@ -6,6 +6,10 @@ class Api::V1::ListsController < Api::V1::ApplicationController
   def index
     @lists = List.order('id DESC').includes(:items, :user).page(params[:page]).per(12)
 
+    if params[:user_name]
+      @lists = @lists.where(:user_id => User.find_by(:name => params[:user_name]))
+    end
+
     render json: @lists
   end
 

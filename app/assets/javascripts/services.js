@@ -11,6 +11,9 @@
     this.getUsers = function() {
       return $http.get('/api/v1/users')
     }
+    this.getUser = function(name) {
+      return $http.get('/api/v1/users/' + name)
+    }
     this.signUpUser = function(email, password) {
       return $http.post('/api/v1/users/sign_up', { email: email, password: password });
     };
@@ -35,9 +38,9 @@
   listsService.$inject = ['$http', '$window']
 
   function listsService($http, $window) {
-    this.getLists = function(page) {
+    this.getLists = function(page, user_name) {
       page = page || 1;
-      return $http.get('/api/v1/lists', { params: { page: page }})
+      return $http.get('/api/v1/lists', { params: { page: page, user_name: user_name }})
     }
     this.getList = function(id) {
       return $http.get('/api/v1/lists/' + id)

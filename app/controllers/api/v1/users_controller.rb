@@ -7,6 +7,12 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     render json: @users
   end
 
+  def show
+    @user = User.find_by(:name => params[:id])
+
+    render json: @user
+  end
+
   def sign_up
     @user = User.new(:email => params[:email])
     @user.password = params[:password]

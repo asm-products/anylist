@@ -36,25 +36,9 @@
     .module('anylistApp')
     .controller('listsController', listsController)
     
-  listsController.$inject = ['$scope', '$http', 'listsService', '$location', '$routeParams']
+  listsController.$inject = ['$scope']
 
-  function listsController($scope, $http, listsService, $location, $routeParams) {
-    $scope.current_page = 0;
-
-    listsService.getLists().then(function(data){
-      $scope.lists = data.data
-    })
-
-    $scope.addLists = function() {
-      $scope.current_page += 1;
-      if(this.lists) {
-        listsService.getLists($scope.current_page).then(function(data){
-          if(data.data) {
-            $scope.lists = $scope.lists.concat(data.data)
-          }
-        })
-      }
-    }
+  function listsController($scope) {
   }
 
   angular
@@ -139,5 +123,17 @@
         $location.path('/')
       });
     };
+  }
+
+  angular
+    .module('anylistApp')
+    .controller('userController', userController)
+    
+  userController.$inject = ['$scope', '$http', 'usersService', '$routeParams']
+
+  function userController($scope, $http, usersService, $routeParams) {
+    usersService.getUser($routeParams.name).then(function(data){
+      $scope.user = data.data
+    });
   }
 })();

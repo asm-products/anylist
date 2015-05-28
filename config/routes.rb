@@ -5,11 +5,12 @@ Rails.application.routes.draw do
         resources :items, only: [:create, :update, :destroy]
       end
 
-      namespace :users do
-        get 'users' => 'users#index'
-        post :sign_up
-        post :sign_in
-        get :current
+      resources :users, only: [:index, :show] do
+        collection do
+          get :current
+          post :sign_up
+          post :sign_in
+        end
       end
     end
   end

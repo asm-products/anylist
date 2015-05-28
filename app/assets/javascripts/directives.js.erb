@@ -1,0 +1,38 @@
+(function() {
+  'use strict';
+
+  angular
+    .module('anylistApp')
+    .directive('lists', lists)
+
+  lists.$inject = ['listsService']
+
+  function lists(listsService) {
+    return {
+      templateUrl: "<%= asset_path('assets/templates/partials/lists.html') %>",
+      link: function($scope, element, attrs) {
+        $scope.user = attrs.user
+
+        $scope.$watch('user', function(value) {
+          var user_name = $scope.user ? $scope.user.name : null
+          $scope.current_page = 0;
+
+          listsService.getLists($scope.current_page, user_name).then(function(data){
+            $scope.lists = data.data
+          })
+
+          $scope.addLists = function() {
+            $scope.current_page += 1;
+            if(this.lists) {
+              listsService.getLists($scope.current_page, user_name).then(function(data){
+                if(data.data) {
+                  $scope.lists = $scope.lists.concat(data.data)
+                }
+              })
+            }
+          }
+        })
+      }
+    }
+  }
+})()

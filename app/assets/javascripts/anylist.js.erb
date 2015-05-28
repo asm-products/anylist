@@ -24,6 +24,10 @@
         templateUrl: "<%= asset_path('assets/templates/list.html') %>",
         controller: 'listController',
         security: true
+      }).when('/user/:name', {
+        templateUrl: "<%= asset_path('assets/templates/user.html') %>",
+        controller: 'userController',
+        security: true
       });
 
     $httpProvider.interceptors.push(function($q, $window) {
