@@ -3,9 +3,9 @@
   %head
     %title
       Anylist
+    %script{ :src => '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' }
     %script{ :src => '//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js' }
     %script{ :src => '//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js' }
-    %script{ :src => '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' }
     = javascript_include_tag 'application'
     = stylesheet_link_tag 'application', media: 'all'
   %body{ 'ng-controller' => 'applicationController' }
@@ -13,3 +13,5 @@
     .container
       %div{ 'ng-view' => '' }
       %footer{ 'ng-include' => "'#{ asset_path('templates/partials/footer.html') }'" }
+    %loading
+      %i.fa.fa-spinner.fa-spin

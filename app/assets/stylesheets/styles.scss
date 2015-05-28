@@ -38,6 +38,23 @@ h1, h2 {
   }
 }
 
+loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, .7);
+  .fa {
+    font-size: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+    color: $light_color;
+  }
+}
+
 .text-right {
   text-align: right;
 }

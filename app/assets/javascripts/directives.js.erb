@@ -35,4 +35,29 @@
       }
     }
   }
+
+  angular
+    .module('anylistApp')
+    .directive('loading', loading)
+
+  loading.$inject = ['$http']
+
+  function loading($http) {
+    return {
+      restrict: 'E',
+      link: function ($scope, element, attrs) {
+        $scope.isLoading = function () {
+          return $http.pendingRequests.length > 0
+        }
+
+        $scope.$watch($scope.isLoading, function (value) {
+          if(value) {
+            element.show()
+          } else {
+            element.hide()
+          }
+        })
+      }
+    }
+  }
 })()
