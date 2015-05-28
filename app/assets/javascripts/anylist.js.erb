@@ -18,11 +18,11 @@
         controller: 'usersController'
       }).when('/lists/new', {
         templateUrl: "<%= asset_path('assets/templates/list.html') %>",
-        controller: 'listsController',
+        controller: 'listController',
         security: true
       }).when('/lists/:id/edit', {
         templateUrl: "<%= asset_path('assets/templates/list.html') %>",
-        controller: 'listsController',
+        controller: 'listController',
         security: true
       });
 

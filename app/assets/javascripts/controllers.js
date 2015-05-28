@@ -36,24 +36,14 @@
     .module('anylistApp')
     .controller('listsController', listsController)
     
-  listsController.$inject = ['$scope', '$http', 'listsService', '$location', '$routeParams', '$filter']
+  listsController.$inject = ['$scope', '$http', 'listsService', '$location', '$routeParams']
 
-  function listsController($scope, $http, listsService, $location, $routeParams, $filter) {
+  function listsController($scope, $http, listsService, $location, $routeParams) {
     $scope.current_page = 0;
 
-    if($routeParams.id) {
-      listsService.getList($routeParams.id).then(function(data){
-        if(data && data.data.is_owner) {
-          $scope.list = data.data
-        } else {
-          $location.path('/')
-        }
-      });
-    } else {
-      listsService.getLists().then(function(data){
-        $scope.lists = data.data
-      })
-    }
+    listsService.getLists().then(function(data){
+      $scope.lists = data.data
+    })
 
     $scope.addLists = function() {
       $scope.current_page += 1;
@@ -64,6 +54,24 @@
           }
         })
       }
+    }
+  }
+
+  angular
+    .module('anylistApp')
+    .controller('listController', listController)
+    
+  listController.$inject = ['$scope', '$http', 'listsService', '$location', '$routeParams']
+
+  function listController($scope, $http, listsService, $location, $routeParams) {
+    if($routeParams.id) {
+      listsService.getList($routeParams.id).then(function(data){
+        if(data && data.data.is_owner) {
+          $scope.list = data.data
+        } else {
+          $location.path('/')
+        }
+      })
     }
 
     $scope.list = {
