@@ -150,6 +150,9 @@ loading {
     margin-bottom: 2px;
     border: none;
     font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .item-wrapper {
     position: relative;
