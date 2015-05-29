@@ -130,6 +130,9 @@ loading {
   .title {
     font-size: 14px;
     margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .info {
     margin-bottom: 10px;
