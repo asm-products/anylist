@@ -1,0 +1,11 @@
+.row
+  .col-6.col-offset-3
+    %h1.page-header
+      Профиль
+    .form-group
+      %input.form-control{ :type => :email, 'ng-model' => 'current_user.email' }
+    .form-group
+      %input.form-control{ :type => :password, 'ng-model' => 'current_user.password_digest', :placeholder => 'Пароль' }
+    .form-group
+      %button.btn{ :type => :submit, 'ng-click' => 'updateUser(current_user)' }
+        Сохранить

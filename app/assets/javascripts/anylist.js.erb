@@ -13,9 +13,6 @@
       .when('/', {
         templateUrl: "<%= asset_path('assets/templates/lists/index.html') %>",
         controller: 'listsController'
-      }).when('/users/auth', {
-        templateUrl: "<%= asset_path('assets/templates/auth.html') %>",
-        controller: 'usersController'
       }).when('/list/:id', {
         templateUrl: "<%= asset_path('assets/templates/lists/show.html') %>",
         controller: 'listController',
@@ -27,8 +24,14 @@
         templateUrl: "<%= asset_path('assets/templates/lists/form.html') %>",
         controller: 'createUpdateListController',
         security: true
+      }).when('/users/auth', {
+        templateUrl: "<%= asset_path('assets/templates/users/auth.html') %>",
+        controller: 'usersController'
+      }).when('/users/edit', {
+        templateUrl: "<%= asset_path('assets/templates/users/edit.html') %>",
+        controller: 'usersController'
       }).when('/user/:name', {
-        templateUrl: "<%= asset_path('assets/templates/user.html') %>",
+        templateUrl: "<%= asset_path('assets/templates/users/show.html') %>",
         controller: 'userController'
       });
 

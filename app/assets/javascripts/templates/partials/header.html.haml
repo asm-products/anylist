@@ -8,6 +8,8 @@
           Добавить лист
         %a{ 'ng-href' => '#/user/{{ current_user.name }}' }
           {{ current_user.name }}
+        %a{ 'ng-href' => '#/users/edit' }
+          Профиль
         %a{ 'ng-href' => '#', 'ng-click' => 'signOutUser()' }
           Выйти
       %span.pull-right{ 'ng-show' => '!current_user' }

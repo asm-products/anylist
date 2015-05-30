@@ -27,7 +27,7 @@
       return $window.sessionStorage.token ? true : false
     };
     this.updateUser = function(user) {
-      return $http.post('/api/v1/users/update', { email: user.email, password: user.password });
+      return $http.post('/api/v1/users', { user: user });
     };
   }
 

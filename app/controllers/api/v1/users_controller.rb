@@ -1,5 +1,5 @@
 class Api::V1::UsersController < Api::V1::ApplicationController
-  before_action :authenticate!, only: :current
+  before_action :authenticate!, only: [:current, :update]
 
   def index
     @users = User.all
@@ -11,6 +11,14 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     @user = User.find_by(:name => params[:id])
 
     render json: @user
+  end
+
+  def update
+    if current_user.update(user_params)
+      render json: @user
+    else
+      head :unprocessable_entity
+    end
   end
 
   def sign_up
@@ -37,4 +45,10 @@ class Api::V1::UsersController < Api::V1::ApplicationController
   def current
     render json: current_user
   end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:name, :email, :password_digest)
+    end
 end
