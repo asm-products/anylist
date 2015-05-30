@@ -3,9 +3,11 @@
     %h1.page-header
       Профиль
     .form-group
-      %input.form-control{ :type => :email, 'ng-model' => 'current_user.email' }
+      %input.form-control{ :type => :text, 'ng-model' => 'update_user.name' }
     .form-group
-      %input.form-control{ :type => :password, 'ng-model' => 'current_user.password_digest', :placeholder => 'Пароль' }
+      %input.form-control{ :type => :email, 'ng-model' => 'update_user.email' }
     .form-group
-      %button.btn{ :type => :submit, 'ng-click' => 'updateUser(current_user)' }
+      %input.form-control{ :type => :password, 'ng-model' => 'update_user.password_digest', :placeholder => 'Пароль' }
+    .form-group
+      %button.btn{ :type => :submit, 'ng-click' => 'updateUser(update_user)' }
         Сохранить

@@ -118,6 +118,8 @@
   usersController.$inject = ['$scope', '$http', 'usersService', '$window', '$location']
 
   function usersController($scope, $http, usersService, $window, $location) {
+    $scope.update_user = angular.copy($scope.current_user)
+
     $scope.signUpUser = function(user) {
       usersService.signUpUser(user.email, user.password).then(function(data){
         if(data) {
@@ -138,6 +140,7 @@
 
     $scope.updateUser = function(user) {
       usersService.updateUser(user).then(function(data){
+        $scope.current_user = user
         $location.path('/')
       });
     };

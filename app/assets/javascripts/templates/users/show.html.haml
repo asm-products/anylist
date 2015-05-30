@@ -1,3 +1,5 @@
 %h1.page-header
   {{ user.name }}
+%a{ 'ng-href' => '#/users/edit' }
+  Изменить профиль
 %lists{ :user => '{{ user }}' }
