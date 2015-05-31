@@ -53,7 +53,7 @@
       items_attributes: []
     };
 
-    $scope.increaseListItemsCount = function(list) {
+    $scope.increaseListItemsCount = function() {
       $scope.list.items_attributes.push({ title: '' });
     };
 
@@ -88,9 +88,9 @@
     .module('anylistApp')
     .controller('listsController', listsController);
     
-  listsController.$inject = ['$scope'];
+  listsController.$inject = [];
 
-  function listsController($scope) {
+  function listsController() {
   }
 
   angular
@@ -139,7 +139,7 @@
     };
 
     $scope.updateUser = function(user) {
-      usersService.updateUser(user).then(function(data){
+      usersService.updateUser(user).then(function(){
         $scope.current_user = user;
         $location.path('/');
       });
