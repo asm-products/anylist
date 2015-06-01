@@ -1,8 +1,9 @@
 @import 'font-awesome';
 
-$lighter_color: #F2F1EF;
-$light_color: #bdbdbd;
-$brand_color: #8E44AD;
+$lighter_color: #ECEDF1;
+$light_color: darken($lighter_color, 30%);
+$dark_color: darken($lighter_color, 70%);
+$brand_color: #39BF74;
 
 * {
   margin: 0;
@@ -18,12 +19,12 @@ body {
   font-size: 14px;
   font-family: 'Arial';
   background: #fff;
-  color: #111;
+  color: $dark_color;
 }
 
 a {
   text-decoration: none;
-  color: #111;
+  color: $dark_color;
 }
 
 ul {
@@ -31,6 +32,7 @@ ul {
 }
 
 h1, h2 {
+  overflow: hidden;
   margin-bottom: 10px;
   font-size: 20px;    
   &.page-header {
@@ -70,18 +72,13 @@ loading {
 .nav {
   height: 40px;
   line-height: 40px;
-  padding: 0 10px;
   margin-bottom: 40px;
-  border-bottom: 1px solid $lighter_color;
+  background: $dark_color;
   a {
-    display: inline-block;
-    height: 40px;
+    vertical-align: middle;
     margin: 0 10px;
     font-size: 12px;
-    opacity: .7;
-    &:hover {
-      opacity: 1;
-    }
+    color: #fff;
   }
 }
 
@@ -101,6 +98,13 @@ loading {
   &.btn-clear {
     background: $lighter_color;
     color: $light_color;
+  }
+  &.btn-small {
+    height: 22px;
+    line-height: 22px;
+    font-size: 11px;
+    padding: 0 10px;
+    font-weight: normal;
   }
   &.btn-block {
     display: block;
@@ -123,6 +127,7 @@ loading {
   font-size: 14px;
   vertical-align: top;
   width: 100%;
+  color: $dark_color;
 }
 
 .list {
@@ -156,6 +161,7 @@ loading {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: $dark_color;
   }
   .item-wrapper {
     position: relative;

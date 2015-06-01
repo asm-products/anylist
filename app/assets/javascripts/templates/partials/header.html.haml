@@ -4,12 +4,12 @@
       %a{ 'ng-href' => '#/' }
         Листы
       %span.pull-right{ 'ng-show' => 'current_user' }
-        %a{ 'ng-href' => '#/lists/new' }
+        %a.btn.btn-small{ 'ng-href' => '#/lists/new' }
           Добавить лист
         %a{ 'ng-href' => '#/user/{{ current_user.name }}' }
           Профиль
         %a{ 'ng-href' => '#', 'ng-click' => 'signOutUser()' }
           Выйти
       %span.pull-right{ 'ng-show' => '!current_user' }
-        %a{ 'ng-href' => '#/users/auth' }
-          Войти
+        %a.btn.btn-small{ 'ng-href' => '#/users/auth' }
+          Войти или зарегистрироваться
