@@ -2,7 +2,7 @@
   .container
     .row
       %a{ 'ng-href' => '#/' }
-        Листы
+        Каталог
       %span.pull-right{ 'ng-show' => 'current_user' }
         %a.btn.btn-small{ 'ng-href' => '#/lists/new' }
           Добавить лист
@@ -13,3 +13,9 @@
       %span.pull-right{ 'ng-show' => '!current_user' }
         %a.btn.btn-small{ 'ng-href' => '#/users/auth' }
           Войти или зарегистрироваться
+.header
+  .container
+    .logo
+      %img{ 'ng-src' => "#{ asset_path('logo.png') }", :width => 200 }
+    .title
+      Создайте свой список чего угодно
