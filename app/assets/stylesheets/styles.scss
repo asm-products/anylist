@@ -46,14 +46,14 @@ loading {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, .7);
+  background: #fff;
   .fa {
-    font-size: 100px;
+    font-size: 150px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -50px 0 0 -50px;
-    color: $light_color;
+    margin: -75px 0 0 -75px;
+    color: $brand_color;
   }
 }
 
