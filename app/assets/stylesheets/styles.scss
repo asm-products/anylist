@@ -84,13 +84,24 @@ loading {
 .header {
   background: lighten($dark_color, 5%);
   margin-bottom: 40px;
-  padding: 40px 0;
-  text-align: center;
+  padding: 20px 0;
   .logo {
-    margin-bottom: 15px;
+    img {
+      width: 100px;
+    }
   }
   .title {
   color: $light_color;    
+  }
+  &.big {
+    text-align: center;
+    padding: 40px 0;
+    .logo {
+      margin-bottom: 15px;
+      img {
+        width: 200px;
+      }
+    }
   }
 }
 

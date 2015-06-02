@@ -23,13 +23,17 @@
     .module('anylistApp')
     .controller('headerController', headerController);
     
-  headerController.$inject = ['$scope', '$http', '$window', '$location'];
+  headerController.$inject = ['$scope', '$http', '$window', '$location', '$routeParams'];
 
-  function headerController($scope, $http, $window, $location) {
+  function headerController($scope, $http, $window, $location, $routeParams) {
     $scope.signOutUser = function() {
       $window.sessionStorage.removeItem('token');
       $location.path('/');
     };
+
+    $scope.$on('$routeChangeSuccess', function() {
+      $scope.showHeader = ($location.$$path == '/')
+    })
   }
 
   angular

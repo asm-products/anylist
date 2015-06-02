@@ -13,9 +13,9 @@
       %span.pull-right{ 'ng-show' => '!current_user' }
         %a.btn.btn-small{ 'ng-href' => '#/users/auth' }
           Войти или зарегистрироваться
-.header
+.header{ 'ng-class' => "{ big: showHeader }" }
   .container
     .logo
-      %img{ 'ng-src' => "#{ asset_path('logo.png') }", :width => 200 }
-    .title
+      %img{ 'ng-src' => "#{ asset_path('logo.png') }" }
+    .title{ 'ng-if' => 'showHeader' }
       Создайте свой список чего угодно
