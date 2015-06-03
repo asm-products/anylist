@@ -9,7 +9,7 @@
     = javascript_include_tag 'application'
     = stylesheet_link_tag 'application', media: 'all'
   %body{ 'ng-controller' => 'applicationController' }
-    %nav{ 'ng-include' => "'#{ asset_path('partials/nav.html') }'" }
+    %nav{ 'ng-include' => "'#{ asset_path('partials/nav.html') }'", 'ng-controller' => 'navController' }
     %header{ 'ng-include' => "'#{ asset_path('partials/header.html') }'", 'ng-controller' => 'headerController', 'ng-class' => "{ big: showHeader }" }
     .container.wrap
       %div{ 'ng-view' => '' }

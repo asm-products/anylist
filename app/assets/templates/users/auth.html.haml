@@ -3,6 +3,8 @@
     %h1.page-header
       Sign Up
     .form-group
+      %input.form-control{ :type => :name, 'ng-model' => 'sign_up_user.name', :placeholder => 'Name' }
+    .form-group
       %input.form-control{ :type => :email, 'ng-model' => 'sign_up_user.email', :placeholder => 'Email' }
     .form-group
       %input.form-control{ :type => :password, 'ng-model' => 'sign_up_user.password', :placeholder => 'Password' }

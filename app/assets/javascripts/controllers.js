@@ -21,16 +21,24 @@
 
   angular
     .module('anylistApp')
+    .controller('navController', navController);
+    
+  navController.$inject = ['$scope', '$http', '$window', '$location', '$routeParams'];
+
+  function navController($scope, $http, $window, $location, $routeParams) {
+    $scope.signOutUser = function() {
+      $window.sessionStorage.removeItem('token');
+      $location.path('/');
+    };
+  }
+
+  angular
+    .module('anylistApp')
     .controller('headerController', headerController);
     
   headerController.$inject = ['$scope', '$http', '$window', '$location', '$routeParams'];
 
   function headerController($scope, $http, $window, $location, $routeParams) {
-    $scope.signOutUser = function() {
-      $window.sessionStorage.removeItem('token');
-      $location.path('/');
-    };
-
     $scope.$on('$routeChangeSuccess', function() {
       $scope.showHeader = ($location.$$path == '/')
     })
@@ -125,7 +133,7 @@
     $scope.update_user = angular.copy($scope.current_user);
 
     $scope.signUpUser = function(user) {
-      usersService.signUpUser(user.email, user.password).then(function(data){
+      usersService.signUpUser(user).then(function(data){
         if(data) {
           $window.sessionStorage.token = data.data.token;
           $location.path('/');
@@ -134,7 +142,7 @@
     };
 
     $scope.signInUser = function(user) {
-      usersService.signInUser(user.email, user.password).then(function(data){
+      usersService.signInUser(user).then(function(data){
         if(data) {
           $window.sessionStorage.token = data.data.token;
           $location.path('/');

@@ -14,11 +14,11 @@
     this.getUser = function(name) {
       return $http.get('/api/v1/users/' + name)
     }
-    this.signUpUser = function(email, password) {
-      return $http.post('/api/v1/users/sign_up', { email: email, password: password });
+    this.signUpUser = function(user) {
+      return $http.post('/api/v1/users/sign_up', { user: user });
     };
-    this.signInUser = function(email, password) {
-      return $http.post('/api/v1/users/sign_in', { email: email, password: password });
+    this.signInUser = function(user) {
+      return $http.post('/api/v1/users/sign_in', { user: user });
     };
     this.getCurrentUser = function() {
       return $http.get('/api/v1/users/current');
