@@ -17,4 +17,4 @@
 //= require directives
 //= require lib/infinite-scroll
 //= require angular-rails-templates
-//= require_tree ./templates
+//= require_tree ../templates

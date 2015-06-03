@@ -9,10 +9,10 @@
     = javascript_include_tag 'application'
     = stylesheet_link_tag 'application', media: 'all'
   %body{ 'ng-controller' => 'applicationController' }
-    %nav{ 'ng-include' => "'#{ asset_path('templates/partials/nav.html') }'" }
-    %header{ 'ng-include' => "'#{ asset_path('templates/partials/header.html') }'", 'ng-controller' => 'headerController', 'ng-class' => "{ big: showHeader }" }
+    %nav{ 'ng-include' => "'#{ asset_path('partials/nav.html') }'" }
+    %header{ 'ng-include' => "'#{ asset_path('partials/header.html') }'", 'ng-controller' => 'headerController', 'ng-class' => "{ big: showHeader }" }
     .container.wrap
       %div{ 'ng-view' => '' }
-    %footer{ 'ng-include' => "'#{ asset_path('templates/partials/footer.html') }'" }
+    %footer{ 'ng-include' => "'#{ asset_path('partials/footer.html') }'" }
     %loading
       %i.fa.fa-refresh.fa-spin

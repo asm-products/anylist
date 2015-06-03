@@ -1,4 +1,4 @@
-(function() {
+ (function() {
   'use strict';
 
   angular
@@ -11,27 +11,27 @@
   function config($routeProvider, $httpProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: "<%= asset_path('assets/templates/lists/index.html') %>",
+        templateUrl: "<%= asset_path('lists/index.html') %>",
         controller: 'listsController'
       }).when('/list/:id', {
-        templateUrl: "<%= asset_path('assets/templates/lists/show.html') %>",
+        templateUrl: "<%= asset_path('lists/show.html') %>",
         controller: 'listController',
       }).when('/lists/new', {
-        templateUrl: "<%= asset_path('assets/templates/lists/form.html') %>",
+        templateUrl: "<%= asset_path('lists/form.html') %>",
         controller: 'createUpdateListController',
         security: true
       }).when('/list/:id/edit', {
-        templateUrl: "<%= asset_path('assets/templates/lists/form.html') %>",
+        templateUrl: "<%= asset_path('lists/form.html') %>",
         controller: 'createUpdateListController',
         security: true
       }).when('/users/auth', {
-        templateUrl: "<%= asset_path('assets/templates/users/auth.html') %>",
+        templateUrl: "<%= asset_path('users/auth.html') %>",
         controller: 'usersController'
       }).when('/users/edit', {
-        templateUrl: "<%= asset_path('assets/templates/users/edit.html') %>",
+        templateUrl: "<%= asset_path('users/edit.html') %>",
         controller: 'usersController'
       }).when('/user/:name', {
-        templateUrl: "<%= asset_path('assets/templates/users/show.html') %>",
+        templateUrl: "<%= asset_path('users/show.html') %>",
         controller: 'userController'
       });
 
