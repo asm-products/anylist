@@ -1,0 +1,14 @@
+.container
+  .row
+    %a{ 'ng-href' => '#/' }
+      Catalog
+    %span.pull-right{ 'ng-show' => 'current_user' }
+      %a.btn.btn-small{ 'ng-href' => '#/lists/new' }
+        New List
+      %a{ 'ng-href' => '#/user/{{ current_user.name }}' }
+        Profile
+      %a{ 'ng-href' => '#', 'ng-click' => 'signOutUser()' }
+        Sign Out
+    %span.pull-right{ 'ng-show' => '!current_user' }
+      %a.btn.btn-small{ 'ng-href' => '#/users/auth' }
+        Join Us
