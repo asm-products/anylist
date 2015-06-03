@@ -1,5 +1,5 @@
 .form-group
-  %input.form-control{ :type => :text, 'ng-model' => 'list.title', :placeholder => 'Название' }
+  %input.form-control{ :type => :text, 'ng-model' => 'list.title', :placeholder => 'Title' }
 .form-group
   .list
     .item-wrapper{ 'ng-repeat' => 'item in list.items_attributes track by $index', 'ng-hide' => 'item._destroy' }
