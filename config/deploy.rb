@@ -1,7 +1,7 @@
 lock '3.4.0'
 
 set :application, 'anylist'
-set :repo_url, 'git@github.com:droptheplot/anylist.git'
+set :repo_url, 'git@github.com:asm-products/anylist.git'
 
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
