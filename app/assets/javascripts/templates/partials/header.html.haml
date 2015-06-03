@@ -2,20 +2,20 @@
   .container
     .row
       %a{ 'ng-href' => '#/' }
-        Каталог
+        Catalog
       %span.pull-right{ 'ng-show' => 'current_user' }
         %a.btn.btn-small{ 'ng-href' => '#/lists/new' }
-          Добавить лист
+          New List
         %a{ 'ng-href' => '#/user/{{ current_user.name }}' }
-          Профиль
+          Profile
         %a{ 'ng-href' => '#', 'ng-click' => 'signOutUser()' }
-          Выйти
+          Sign Out
       %span.pull-right{ 'ng-show' => '!current_user' }
         %a.btn.btn-small{ 'ng-href' => '#/users/auth' }
-          Войти или зарегистрироваться
+          Join Us
 .header{ 'ng-class' => "{ big: showHeader }" }
   .container
     .logo
       %img{ 'ng-src' => "#{ asset_path('logo.png') }" }
     .title{ 'ng-if' => 'showHeader' }
-      Создайте свой список чего угодно
+      Create and share your lists

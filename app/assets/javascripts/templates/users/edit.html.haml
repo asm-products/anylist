@@ -1,7 +1,7 @@
 .row
   .col-6.col-offset-3
     %h1.page-header
-      Профиль
+      Edit Profile
     .form-group
       %input.form-control{ :type => :text, 'ng-model' => 'update_user.name' }
     .form-group
@@ -10,4 +10,4 @@
       %input.form-control{ :type => :password, 'ng-model' => 'update_user.password_digest', :placeholder => 'Пароль' }
     .form-group
       %button.btn{ :type => :submit, 'ng-click' => 'updateUser(update_user)' }
-        Сохранить
+        Save

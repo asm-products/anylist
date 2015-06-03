@@ -10,6 +10,6 @@
       %i.fa.fa-plus
 .form-group
   %button.btn{ :type => :submit, 'ng-click' => 'processList(list)' }
-    Сохранить
+    Save
   %a.btn.btn-clear{ 'ng-href' => '#/list/{{ list.id }}', 'ng-if' => 'list.id' }
-    Отменить
+    Back

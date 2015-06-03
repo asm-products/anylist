@@ -1,5 +1,5 @@
 %h1.page-header
   {{ user.name }}
   %a.btn.btn-clear.btn-small.pull-right{ 'ng-href' => '#/users/edit', 'ng-if' => 'user.id == current_user.id' }
-    Изменить профиль
+    Edit Profile
 %lists{ :user => '{{ user }}' }

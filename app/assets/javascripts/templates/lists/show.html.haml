@@ -7,6 +7,6 @@
       {{ list.user.name }}
     %a{ 'ng-href' => '#/list/{{ list.id }}/edit', 'ng-if' => 'list.is_owner' }
       %i.fa.fa-cog
-      Изменить
+      Edit
   .item{ 'ng-repeat' => 'item in list.items_attributes | limitTo:5' }
     {{ item.title }}
