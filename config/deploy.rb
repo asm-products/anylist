@@ -7,6 +7,8 @@ ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 set :deploy_to, '/var/www/anylist'
 
+set :tmp_dir, '/var/www/tmp'
+
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/uploads')
 
